@@ -1,0 +1,21 @@
+<section id="estudiantes" class="list-section">
+  <div class="section-head">
+    <div>
+      <span>REGISTRO ACADÉMICO</span>
+      <h2>Estudiantes registrados</h2>
+    </div>
+    <div class="search">⌕ <input [(ngModel)]="filtro" placeholder="Buscar estudiante..." /></div>
+  </div>
+
+  <div class="empty" *ngIf="filtrados.length === 0">No se encontraron estudiantes.</div>
+
+  <div class="grid">
+    <app-estudiante-card
+      *ngFor="let estudiante of filtrados; let i = index"
+      [estudiante]="estudiante"
+      [style.animation-delay]="(i * 70) + 'ms'"
+      (editar)="editar.emit($event)"
+      (eliminar)="eliminar.emit($event)">
+    </app-estudiante-card>
+  </div>
+</section>

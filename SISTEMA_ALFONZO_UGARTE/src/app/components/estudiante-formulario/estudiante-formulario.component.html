@@ -1,0 +1,37 @@
+<div class="overlay" (click)="cerrar.emit()">
+  <section class="modal" (click)="$event.stopPropagation()">
+    <button class="close" type="button" (click)="cerrar.emit()">×</button>
+    <div class="modal-title">
+      <span class="mini">REGISTRO ACADÉMICO</span>
+      <h2>{{ estudiante ? 'Editar estudiante' : 'Nuevo estudiante' }}</h2>
+      <p>Completa los datos del estudiante.</p>
+    </div>
+
+    <form (ngSubmit)="enviar()">
+      <div class="row">
+        <label>Código<input name="codigo" [(ngModel)]="modelo.codigo" placeholder="Ej. AU-006" required></label>
+        <label>Edad<input name="edad" type="number" min="10" max="20" [(ngModel)]="modelo.edad" required></label>
+      </div>
+      <div class="row">
+        <label>Nombres<input name="nombres" [(ngModel)]="modelo.nombres" placeholder="Nombres" required></label>
+        <label>Apellidos<input name="apellidos" [(ngModel)]="modelo.apellidos" placeholder="Apellidos" required></label>
+      </div>
+      <div class="row">
+        <label>Grado
+          <select name="grado" [(ngModel)]="modelo.grado">
+            <option>1° Secundaria</option><option>2° Secundaria</option><option>3° Secundaria</option><option>4° Secundaria</option><option>5° Secundaria</option>
+          </select>
+        </label>
+        <label>Sección
+          <select name="seccion" [(ngModel)]="modelo.seccion">
+            <option>A</option><option>B</option><option>C</option><option>D</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="cancel" (click)="cerrar.emit()">Cancelar</button>
+        <button type="submit" class="save">✓ {{ estudiante ? 'Guardar cambios' : 'Registrar estudiante' }}</button>
+      </div>
+    </form>
+  </section>
+</div>

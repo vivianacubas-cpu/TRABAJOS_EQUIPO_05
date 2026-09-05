@@ -1,0 +1,16 @@
+<article class="card">
+  <div class="top">
+    <div class="avatar">{{ estudiante.nombres.charAt(0) }}{{ estudiante.apellidos.charAt(0) }}</div>
+    <span class="code">{{ estudiante.codigo }}</span>
+  </div>
+  <h3>{{ estudiante.nombres }} {{ estudiante.apellidos }}</h3>
+  <div class="details">
+    <span>🎓 {{ estudiante.grado }}</span>
+    <span>▣ Sección {{ estudiante.seccion }}</span>
+    <span>◉ {{ estudiante.edad }} años</span>
+  </div>
+  <div class="actions">
+    <button class="edit" (click)="editar.emit(estudiante)">✎ Editar</button>
+    <button class="delete" (click)="eliminar.emit(estudiante.id)">⌫ Eliminar</button>
+  </div>
+</article>

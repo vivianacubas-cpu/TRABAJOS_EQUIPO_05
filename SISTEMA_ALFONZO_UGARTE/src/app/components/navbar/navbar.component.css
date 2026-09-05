@@ -1,0 +1,10 @@
+nav { height:74px; padding:0 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,.94); backdrop-filter:blur(12px); border-bottom:1px solid #f4e0e8; position:sticky; top:0; z-index:50; }
+.brand { display:flex; align-items:center; gap:11px; }
+.logo { width:42px; height:42px; border-radius:13px; background:#d52e7e; color:white; display:grid; place-items:center; font-weight:800; box-shadow:0 7px 17px rgba(213,46,126,.25); }
+.brand strong { display:block; color:#342a31; font-size:15px; }
+.brand small { color:#a18c97; font-size:10px; }
+.links { display:flex; align-items:center; gap:22px; }
+.links a { color:#695d65; text-decoration:none; font-size:13px; font-weight:600; transition:.2s; }
+.links a:hover { color:#d52e7e; }
+.links button { border:0; background:#fff0f7; color:#c22570; padding:10px 15px; border-radius:12px; font-weight:700; cursor:pointer; }
+@media(max-width:650px){ .links a {display:none;} nav {padding:0 3%;} }
