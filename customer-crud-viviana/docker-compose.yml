@@ -1,0 +1,10 @@
+services:
+  sqlserver:
+    image: vivianacubas/sql-server:2022
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Admin12345"
+    ports:
+      - "1433:1433"
+    restart: unless-stopped
