@@ -1,0 +1,17 @@
+<div class="padre-card" [class.inactivo]="!padre.estado">
+  <div class="padre-info">
+    <h3>{{ padre.nombres }} {{ padre.apellidos }}</h3>
+    <p><strong>DNI:</strong> {{ padre.dni }}</p>
+    <p><strong>Teléfono:</strong> {{ padre.telefono || 'No registrado' }}</p>
+    <p><strong>Correo:</strong> {{ padre.correo || 'No registrado' }}</p>
+    <span class="badge" [class.badge-activo]="padre.estado" [class.badge-inactivo]="!padre.estado">
+      {{ padre.estado ? 'Activo' : 'Inactivo' }}
+    </span>
+  </div>
+  <div class="padre-acciones">
+    <a [routerLink]="['/padres', padre.id]" class="btn btn-ver">Ver</a>
+    <a [routerLink]="['/padres/editar', padre.id]" class="btn btn-editar">Editar</a>
+    <button *ngIf="padre.estado" (click)="onEliminar()" class="btn btn-eliminar">Eliminar</button>
+    <button *ngIf="!padre.estado" (click)="onRestaurar()" class="btn btn-restaurar">Restaurar</button>
+  </div>
+</div>

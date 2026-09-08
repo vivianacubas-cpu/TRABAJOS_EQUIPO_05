@@ -1,0 +1,10 @@
+<div class="padre-lista">
+  <app-padre-card
+    *ngFor="let padre of padres"
+    [padre]="padre"
+    (eliminar)="eliminar.emit($event)"
+    (restaurar)="restaurar.emit($event)">
+  </app-padre-card>
+
+  <p *ngIf="padres.length === 0" class="sin-datos">No hay padres registrados.</p>
+</div>

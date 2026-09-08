@@ -1,0 +1,15 @@
+<div class="padres-page">
+  <div class="encabezado">
+    <h2>Padres de familia</h2>
+    <a routerLink="/padres/nuevo" class="btn btn-nuevo">+ Registrar padre</a>
+  </div>
+
+  <p *ngIf="cargando">Cargando padres...</p>
+
+  <app-padre-lista
+    *ngIf="!cargando"
+    [padres]="padres"
+    (eliminar)="onEliminar($event)"
+    (restaurar)="onRestaurar($event)">
+  </app-padre-lista>
+</div>

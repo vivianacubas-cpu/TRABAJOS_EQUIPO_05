@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Estudiante } from '../../models/estudiante.model';
 import { EstudianteService } from '../../services/estudiante.service';
+import { EstudianteListaComponent } from '../../components/estudiante-lista/estudiante-lista.component';
 
 @Component({
   selector: 'app-estudiantes-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, EstudianteListaComponent],
   template: `
     <section class="page-shell reveal">
       <div class="section-head">
@@ -26,33 +27,11 @@ import { EstudianteService } from '../../services/estudiante.service';
         </div>
       </div>
 
-      <div class="empty-state" *ngIf="estudiantesFiltrados.length === 0">
-        <h3>No hay estudiantes registrados.</h3>
-        <p>Agrega el primer estudiante desde el formulario de registro.</p>
-      </div>
-
-      <div class="card-grid" *ngIf="estudiantesFiltrados.length > 0">
-        <article class="student-card" *ngFor="let estudiante of estudiantesFiltrados; let i = index" [style.animation-delay.ms]="i * 70">
-          <div class="card-header">
-            <div class="avatar">{{ estudiante.nombres.charAt(0) }}{{ estudiante.apellidos.charAt(0) }}</div>
-            <span class="code">{{ estudiante.codigo }}</span>
-          </div>
-
-          <h3>{{ estudiante.nombres }} {{ estudiante.apellidos }}</h3>
-
-          <ul class="meta">
-            <li>🎓 {{ estudiante.grado }}</li>
-            <li>▣ Sección {{ estudiante.seccion }}</li>
-            <li>◉ {{ estudiante.edad }} años</li>
-          </ul>
-
-          <div class="card-actions">
-            <a class="ghost-btn" [routerLink]="['/estudiantes', estudiante.id]">Detalle</a>
-            <a class="edit-btn" [routerLink]="['/estudiantes/editar', estudiante.id]">Editar</a>
-            <button class="delete-btn" type="button" (click)="eliminar(estudiante.id)">Eliminar</button>
-          </div>
-        </article>
-      </div>
+      <app-estudiante-lista
+        [estudiantes]="estudiantes"
+        (editar)="editar($event)"
+        (eliminar)="eliminar($event)">
+      </app-estudiante-lista>
     </section>
   `,
   styles: [
@@ -255,5 +234,9 @@ export class EstudiantesPageComponent implements OnInit {
       this.estudianteService.eliminar(id);
       this.estudiantes = this.estudianteService.getEstudiantes();
     }
+  }
+
+  editar(estudiante: Estudiante): void {
+    window.location.href = `/estudiantes/editar/${estudiante.id}`;
   }
 }

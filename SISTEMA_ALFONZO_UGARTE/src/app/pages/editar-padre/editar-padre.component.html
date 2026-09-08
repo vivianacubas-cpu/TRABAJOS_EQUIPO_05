@@ -1,0 +1,10 @@
+<div class="editar-padre-page">
+  <h2>Editar padre</h2>
+  <app-padre-formulario
+    *ngIf="padre"
+    [padre]="padre"
+    [modoEdicion]="true"
+    (guardar)="onGuardar($event)"
+    (cancelar)="onCancelar()">
+  </app-padre-formulario>
+</div>

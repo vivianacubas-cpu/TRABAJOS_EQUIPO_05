@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="padre-formulario">
+  <div class="campo">
+    <label>Nombres</label>
+    <input type="text" formControlName="nombres" placeholder="Ej. Carlos">
+    <span class="error" *ngIf="form.get('nombres')?.invalid && form.get('nombres')?.touched">
+      Los nombres son obligatorios.
+    </span>
+  </div>
+
+  <div class="campo">
+    <label>Apellidos</label>
+    <input type="text" formControlName="apellidos" placeholder="Ej. Ramírez Soto">
+    <span class="error" *ngIf="form.get('apellidos')?.invalid && form.get('apellidos')?.touched">
+      Los apellidos son obligatorios.
+    </span>
+  </div>
+
+  <div class="campo">
+    <label>DNI</label>
+    <input type="text" formControlName="dni" maxlength="8" placeholder="Ej. 45678912">
+    <span class="error" *ngIf="form.get('dni')?.invalid && form.get('dni')?.touched">
+      Ingrese un DNI válido de 8 dígitos.
+    </span>
+  </div>
+
+  <div class="campo">
+    <label>Teléfono</label>
+    <input type="text" formControlName="telefono" placeholder="Ej. 987654321">
+  </div>
+
+  <div class="campo">
+    <label>Correo</label>
+    <input type="email" formControlName="correo" placeholder="Ej. correo@gmail.com">
+    <span class="error" *ngIf="form.get('correo')?.invalid && form.get('correo')?.touched">
+      Ingrese un correo válido.
+    </span>
+  </div>
+
+  <div class="campo">
+    <label>Fecha de nacimiento</label>
+    <input type="date" formControlName="fechaNacimiento">
+  </div>
+
+  <div class="acciones">
+    <button type="submit" class="btn btn-guardar">{{ modoEdicion ? 'Actualizar' : 'Registrar' }}</button>
+    <button type="button" class="btn btn-cancelar" (click)="onCancelar()">Cancelar</button>
+  </div>
+</form>

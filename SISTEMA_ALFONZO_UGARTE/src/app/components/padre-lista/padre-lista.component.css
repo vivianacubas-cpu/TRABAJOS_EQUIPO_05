@@ -1,0 +1,11 @@
+.padre-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sin-datos {
+  text-align: center;
+  color: #888;
+  padding: 24px;
+}

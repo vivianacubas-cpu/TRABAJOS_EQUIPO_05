@@ -185,6 +185,7 @@ export class RegistrarEstudiantePageComponent implements OnInit {
 
   guardar(form: any): void {
     if (form.invalid || !this.modelo.nombres.trim() || !this.modelo.apellidos.trim() || !this.modelo.codigo.trim()) {
+      form.control.markAllAsTouched();
       this.mensaje = 'Todos los campos son obligatorios.';
       return;
     }

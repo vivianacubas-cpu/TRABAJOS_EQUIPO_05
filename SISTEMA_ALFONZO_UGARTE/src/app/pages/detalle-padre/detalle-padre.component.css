@@ -1,0 +1,13 @@
+.detalle-padre-page {
+  padding: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: #4a90d9;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}

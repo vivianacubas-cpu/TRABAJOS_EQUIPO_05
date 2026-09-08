@@ -1,0 +1,9 @@
+<div class="detalle-padre-page" *ngIf="padre">
+  <h2>{{ padre.nombres }} {{ padre.apellidos }}</h2>
+  <p><strong>DNI:</strong> {{ padre.dni }}</p>
+  <p><strong>Teléfono:</strong> {{ padre.telefono }}</p>
+  <p><strong>Correo:</strong> {{ padre.correo }}</p>
+  <p><strong>Fecha de nacimiento:</strong> {{ padre.fechaNacimiento }}</p>
+  <p><strong>Estado:</strong> {{ padre.estado ? 'Activo' : 'Inactivo' }}</p>
+  <a routerLink="/padres" class="btn">Volver</a>
+</div>
